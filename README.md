@@ -9,9 +9,9 @@ Team members:
 ## First commands steps:
 In order to start testing and building the commands to create the Docker image, we use the following commands:
 - ```cmd
-    docker run -d --name Container1 -p 8001:80 ubuntu
+    docker run -d --name Container1 -p 9001:80 ubuntu
     docker ps
-    docker run -d --name Container2 -p 8002:80 ubuntu
+    docker run -d --name Container2 -p 9002:80 ubuntu
     docker ps
     docker network create myNetwork
     docker network ls
@@ -29,8 +29,8 @@ In order to start testing and building the commands to create the Docker image, 
       ping Container2
       exit
       ```
-    - Once this done, you can browse the server for `Container1` listening `8001` port like this:
-      - http://localhost:8001/
+    - Once this done, you can browse the server for `Container1` listening `9001` port like this:
+      - http://localhost:9001/
 - If we want to test the connection between `Container2` and `Container1`:
   - ```cmd
       docker exec -it Container2 sh
@@ -41,8 +41,8 @@ In order to start testing and building the commands to create the Docker image, 
       ping Container1
       exit
       ```
-    - Once this done, you can browse the server for `Container2` listening `8002` port like this:
-      - http://localhost:8002/
+    - Once this done, you can browse the server for `Container2` listening `9002` port like this:
+      - http://localhost:9002/
 - Finally we can stop the containers:
 - ```cmd
     docker stop Container1
@@ -69,14 +69,15 @@ So, based on the previous executed commands, we will build the Dockerfile as fol
     CMD ["apache2ctl", "-D", "FOREGROUND"]
 
     ```
-- Then we can create/build a new image called `my-image`:
+- So first, we can create/build a new image called `my-image` and create the newtwork `myNetwork`:
   - ```cmd
       docker build -t my-image .
+      docker network create myNetwork
     ```
-- Finally, we serve the container for `Container1` and `Container2`:
+- Finally, open a Terminal instance (In Windows use PowerShell terminal) and serve the container for `Container1` and `Container2`:
   - ```cmd
-      docker run -d --name Container1 -p 8001:80 -v ${PWD}/app1:/var/www/html --network myNetwork my-image
-      docker run -d --name Container2 -p 8002:80 -v ${PWD}/app2:/var/www/html --network myNetwork my-image
+      docker run -d --name Container1 -p 9001:80 -v ${PWD}/app1:/var/www/html --network myNetwork my-image
+      docker run -d --name Container2 -p 9002:80 -v ${PWD}/app2:/var/www/html --network myNetwork my-image
     ```
   - ```cmd
       docker exec -it Container1 sh
