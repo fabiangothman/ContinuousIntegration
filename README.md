@@ -30,7 +30,7 @@ In order to start testing and building the commands to create the Docker image, 
       exit
       ```
     - Once this done, you can browse the server for `Container1` listening `9001` port like this:
-      - http://localhost:9001/
+      - [http://localhost:9001](http://localhost:9001/)
 - If we want to test the connection between `Container2` and `Container1`:
   - ```cmd
       docker exec -it Container2 sh
@@ -42,7 +42,7 @@ In order to start testing and building the commands to create the Docker image, 
       exit
       ```
     - Once this done, you can browse the server for `Container2` listening `9002` port like this:
-      - http://localhost:9002/
+      - [http://localhost:9002](http://localhost:9002/)
 - Finally we can stop the containers:
 - ```cmd
     docker stop Container1
@@ -74,7 +74,7 @@ So, based on the previous executed commands, we will build the Dockerfile as fol
       docker build -t my-image .
       docker network create myNetwork
     ```
-- Finally, open a Terminal instance (In Windows use PowerShell terminal) and serve the container for `Container1` and `Container2`:
+- Finally, open a Terminal instance (In Windows use `PowerShell` terminal) and serve the container for `Container1` and `Container2`:
   - ```cmd
       docker run -d --name Container1 -p 9001:80 -v ${PWD}/app1:/var/www/html --network myNetwork my-image
       docker run -d --name Container2 -p 9002:80 -v ${PWD}/app2:/var/www/html --network myNetwork my-image
@@ -93,6 +93,9 @@ So, based on the previous executed commands, we will build the Dockerfile as fol
         ping Container1
         exit
       ```
+- Also you'll see that the projects are available at the urls:
+  - [http://localhost:9001](http://localhost:9001/)
+  - [http://localhost:9002](http://localhost:9002/)
 - We can stop the containers:
   ```cmd
     docker stop Container1
