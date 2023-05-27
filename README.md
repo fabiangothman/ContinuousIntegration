@@ -30,7 +30,7 @@ In order to start testing and building the commands to create the Docker image, 
       exit
       ```
     - Once this done, you can browse the server for `Container1` listening `9001` port like this:
-      - [http://localhost:9001](http://localhost:9001/)
+      - <a href="http://localhost:9001/" target="_blank">http://localhost:9001</a>
 - If we want to test the connection between `Container2` and `Container1`:
   - ```cmd
       docker exec -it Container2 sh
@@ -42,7 +42,7 @@ In order to start testing and building the commands to create the Docker image, 
       exit
       ```
     - Once this done, you can browse the server for `Container2` listening `9002` port like this:
-      - [http://localhost:9002](http://localhost:9002/)
+      - <a href="http://localhost:9002/" target="_blank">http://localhost:9002</a>
 - Finally we can stop the containers:
 - ```cmd
     docker stop Container1
@@ -94,8 +94,8 @@ So, based on the previous executed commands, we will build the Dockerfile as fol
         exit
       ```
 - Also you'll see that the projects are available at the urls:
-  - [http://localhost:9001](http://localhost:9001/)
-  - [http://localhost:9002](http://localhost:9002/)
+  - <a href="http://localhost:9001/" target="_blank">http://localhost:9001</a>
+  - <a href="http://localhost:9002/" target="_blank">http://localhost:9002</a>
 - We can stop the containers:
   ```cmd
     docker stop Container1
