@@ -29,7 +29,7 @@ https://templatemo.com/tm-539-simple-house
 							<img src="img/simple-house-logo.png" alt="Logo" class="tm-site-logo" /> 
 							<div class="tm-site-text-box">
 								<h1 class="tm-site-title">Simple House</h1>
-								<h6 class="tm-site-description">Nuevo restaurante container 2</h6>	
+								<h6 class="tm-site-description">Container 1 - Aplicación Administrador</h6>		
 							</div>
 						</div>
 						<nav class="col-md-6 col-12 tm-nav">
