@@ -8,10 +8,11 @@ Team members:
 
 ## First commands steps:
 In order to start testing and building the commands to create the Docker image, we use the following commands:
+- Turn on Docker Desktop or Docker app (if not turned on by default).
 - ```cmd
-    docker run -d --name ContainerTest1 -p 9001:80 ubuntu
+    docker run -d --name ContainerTest1 -p 9011:80 ubuntu
     docker ps
-    docker run -d --name ContainerTest2 -p 9002:80 ubuntu
+    docker run -d --name ContainerTest2 -p 9012:80 ubuntu
     docker ps
     docker network create myNetworkTest
     docker network ls
@@ -29,8 +30,8 @@ In order to start testing and building the commands to create the Docker image, 
       ping ContainerTest2
       exit
       ```
-    - Once this done, you can browse the server for `ContainerTest1` listening `9001` port like this:
-      - <a href="http://localhost:9001/" target="_blank">http://localhost:9001</a>
+    - Once this done, you can browse the server for `ContainerTest1` listening `9011` port like this:
+      - <a href="http://localhost:9011/" target="_blank">http://localhost:9011</a>
 - If we want to test the connection between `ContainerTest2` and `ContainerTest1`:
   - ```cmd
       docker exec -it ContainerTest2 sh
@@ -41,8 +42,8 @@ In order to start testing and building the commands to create the Docker image, 
       ping ContainerTest1
       exit
       ```
-    - Once this done, you can browse the server for `ContainerTest2` listening `9002` port like this:
-      - <a href="http://localhost:9002/" target="_blank">http://localhost:9002</a>
+    - Once this done, you can browse the server for `ContainerTest2` listening `9012` port like this:
+      - <a href="http://localhost:9012/" target="_blank">http://localhost:9012</a>
 - Finally we can stop the containers:
 - ```cmd
     docker stop ContainerTest1
