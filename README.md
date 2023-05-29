@@ -9,44 +9,44 @@ Team members:
 ## First commands steps:
 In order to start testing and building the commands to create the Docker image, we use the following commands:
 - ```cmd
-    docker run -d --name Container1 -p 9001:80 ubuntu
+    docker run -d --name ContainerTest1 -p 9001:80 ubuntu
     docker ps
-    docker run -d --name Container2 -p 9002:80 ubuntu
+    docker run -d --name ContainerTest2 -p 9002:80 ubuntu
     docker ps
-    docker network create myNetwork
+    docker network create myNetworkTest
     docker network ls
-    docker network connect myNetwork Container1
-    docker network connect myNetwork Container2
-    docker network inspect myNetwork
+    docker network connect myNetworkTest ContainerTest1
+    docker network connect myNetworkTest ContainerTest2
+    docker network inspect myNetworkTest
   ```
-- If we want to test the connection between `Container1` and `Container2`:
+- If we want to test the connection between `ContainerTest1` and `ContainerTest2`:
   - ```cmd
-      docker exec -it Container1 sh
+      docker exec -it ContainerTest1 sh
     ```
     - ```cmd
       apt-get update
       apt-get install -y apache2 php libapache2-mod-php inetutils-ping
-      ping Container2
+      ping ContainerTest2
       exit
       ```
-    - Once this done, you can browse the server for `Container1` listening `9001` port like this:
+    - Once this done, you can browse the server for `ContainerTest1` listening `9001` port like this:
       - <a href="http://localhost:9001/" target="_blank">http://localhost:9001</a>
-- If we want to test the connection between `Container2` and `Container1`:
+- If we want to test the connection between `ContainerTest2` and `ContainerTest1`:
   - ```cmd
-      docker exec -it Container2 sh
+      docker exec -it ContainerTest2 sh
     ```
     - ```cmd
       apt-get update
       apt-get install -y apache2 php libapache2-mod-php inetutils-ping
-      ping Container1
+      ping ContainerTest1
       exit
       ```
-    - Once this done, you can browse the server for `Container2` listening `9002` port like this:
+    - Once this done, you can browse the server for `ContainerTest2` listening `9002` port like this:
       - <a href="http://localhost:9002/" target="_blank">http://localhost:9002</a>
 - Finally we can stop the containers:
 - ```cmd
-    docker stop Container1
-    docker stop Container2
+    docker stop ContainerTest1
+    docker stop ContainerTest2
   ```
 
 ## Dockerfile build:
