@@ -1,4 +1,4 @@
-# Logs
+# The initial comment (Logs) is modified to check Jenkins
 logs
 *.log
 npm-debug.log*
